@@ -31,26 +31,55 @@ html,body{
     width: 100%;
   
 }
-.logo{
-   display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 1vw;
-    height: fit-content;
-    width: fit-content;
-}
-.logo img{
-    height: 80px;
-    width: 80px;
-}
-.logo h4{
-   
-    color: #D4AF37;
-    font-family: Inter;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
+/* ====== NEW LOGO STYLE ====== */
 
+.logo{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 1.6rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 0% 0%, #111827, #020617);
+    border: 1.5px solid rgba(212, 175, 55, 0.8);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+    height: auto;
+    width: auto;
+}
+
+/* yellow logo icon */
+.logo img{
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));
+}
+
+/* AD ONE GLOBAL text */
+.logo h4{
+    color: #FDE68A;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* ====== MOBILE TWEAKS ====== */
+@media screen and (max-width: 768px) {
+  .logo{
+      padding: 0.4rem 1rem;
+      gap: 0.5rem;
+  }
+
+  .logo img{
+      height: 34px;
+  }
+
+  .logo h4{
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+  }
 }
 .nav-2{
     display: flex;
