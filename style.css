@@ -31,56 +31,71 @@ html,body{
     width: 100%;
   
 }
-/* ====== NEW LOGO STYLE ====== */
+/* ========== FINAL PREMIUM LOGO STYLE ========== */
 
-.logo{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.6rem 1.6rem;
-    border-radius: 999px;
-    background: radial-gradient(circle at 0% 0%, #111827, #020617);
-    border: 1.5px solid rgba(212, 175, 55, 0.8);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
-    height: auto;
-    width: auto;
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 1.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #020617, #020617, #0f172a);
+  border: 2px solid rgba(212, 175, 55, 0.9);
+  box-shadow:
+    0 0 25px rgba(212, 175, 55, 0.25),
+    0 18px 45px rgba(0, 0, 0, 0.9);
+  transition: all 0.3s ease;
 }
 
-/* yellow logo icon */
-.logo img{
-    height: 42px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));
+.logo:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow:
+    0 0 45px rgba(212, 175, 55, 0.6),
+    0 28px 70px rgba(0, 0, 0, 0.95);
 }
 
-/* AD ONE GLOBAL text */
-.logo h4{
-    color: #FDE68A;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    line-height: 1.2;
+/* LOGO ICON */
+.logo img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 12px rgba(212, 175, 55, 0.95))
+    brightness(1.15)
+    contrast(1.1);
 }
 
-/* ====== MOBILE TWEAKS ====== */
+/* LOGO TEXT */
+.logo h4 {
+  color: #FFD95A;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow:
+    0 0 6px rgba(212, 175, 55, 0.6),
+    0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+/* MOBILE FIX */
 @media screen and (max-width: 768px) {
-  .logo{
-      padding: 0.4rem 1rem;
-      gap: 0.5rem;
+  .logo {
+    padding: 0.45rem 1.2rem;
+    gap: 0.6rem;
   }
 
-  .logo img{
-      height: 34px;
+  .logo img {
+    height: 30px;
   }
 
-  .logo h4{
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
+  .logo h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
   }
 }
+
 .nav-2{
     display: flex;
     align-items: center;
