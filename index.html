@@ -929,6 +929,27 @@
         new Date().getFullYear();
     </script>
   </body>
+  <script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          // Uncomment the next line if you never want to hide again:
+          // observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
 </html>
 /* ===== FORCE REMOVE BIG HERO LOGO / CIRCLE IMAGE ===== */
 
