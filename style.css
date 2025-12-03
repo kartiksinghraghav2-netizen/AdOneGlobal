@@ -932,6 +932,61 @@ width:90%;
 
 }
 }
+/* === FORCE ICON-ONLY LOGO (HIDE TEXT) === */
+
+.logo h1,
+.logo h2,
+.logo h3,
+.logo h4,
+.logo h5,
+.logo h6,
+.logo span,
+.logo p {
+  display: none !important;
+}
+/* Premium icon-only logo pill */
+
+.logo {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #020617, #020617, #0f172a);
+  border: 2px solid rgba(212, 175, 55, 0.95);
+  box-shadow:
+    0 0 22px rgba(212, 175, 55, 0.35),
+    0 18px 45px rgba(0, 0, 0, 0.9);
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow:
+    0 0 40px rgba(212, 175, 55, 0.7),
+    0 28px 70px rgba(0, 0, 0, 0.95);
+}
+
+.logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 16px rgba(212, 175, 55, 1))
+    brightness(1.2)
+    contrast(1.1);
+}
+
+/* mobile tweak */
+@media screen and (max-width: 768px) {
+  .logo {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo img {
+    height: 34px;
+  }
+}
 
     
 
