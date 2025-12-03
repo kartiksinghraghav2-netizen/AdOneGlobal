@@ -31,6 +31,45 @@ html,body{
     width: 100%;
   
 }
+/* --- Smooth transitions for common elements --- */
+.logo,
+.nav-2 a,
+.nav-2 .abcd,
+.tophome a,
+.s-1,
+.wk-1 img {
+  transition: all 0.25s ease;
+}
+
+/* Logo hover – slight lift */
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+/* Nav links hover – subtle color + scale */
+.nav-2 a:hover {
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+/* Primary button hover (Book Now etc.) */
+.nav-2 .abcd:hover,
+.tophome a:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Service cards hover */
+.s-1:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Big image hover (work/home image) */
+.wk-1 img:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
 /* ===== FINAL BALANCED LOGO DESIGN ===== */
 
 .logo {
