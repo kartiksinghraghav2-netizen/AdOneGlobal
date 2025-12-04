@@ -568,39 +568,55 @@ footer {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-/* ✅ LOCK NAVBAR HEIGHT (PREVENT BACKGROUND FROM GROWING) */
+/* ========== CLEAN NAVBAR + BIGGER LOGO (NO RING) ========== */
+
+/* keep navbar row slim */
 .nav {
-  height: 90px !important;   /* keeps top bar fixed */
-  align-items: center !important;
+  position: sticky;
+  top: 0;
+  z-index: 30;
 }
 
-/* ✅ LOCK LOGO CONTAINER SIZE */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;        /* controls navbar height */
+}
+
+/* logo container – no ring, no background */
 .logo {
-  height: 60px !important;   /* container height stays clean */
-  padding: 0 18px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;                /* remove extra space */
+  margin: 0;
+  background: transparent;   /* remove capsule/ring */
+  border: none;
+  box-shadow: none;
 }
 
-/* ✅ ONLY SCALE THE IMAGE */
+/* your yellow logo image */
 .logo img {
-  height: 80px !important;   /* 🔥 ONLY LOGO SIZE INCREASES */
-  width: auto !important;
-  object-fit: contain !important;
+  display: block;
+  height: 40px;              /* base size of logo */
+  width: auto;
+  object-fit: contain;
+
+  /* make it visually a bit larger
+     without making navbar taller  */
+  transform: scale(1.25);
+  transform-origin: left center;
 }
 
-/* ✅ MOBILE SAFETY */
-@media (max-width: 768px) {
-  .nav {
-    height: 75px !important;
-  }
-
-  .logo {
-    height: 52px !important;
+/* mobile tweak */
+@media (max-width: 640px) {
+  .nav-inner {
+    padding: 0.6rem 0;
   }
 
   .logo img {
-    height: 55px !important;
+    height: 32px;
+    transform: scale(1.15);
   }
 }
