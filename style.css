@@ -75,18 +75,31 @@ img {
   gap: 1.5rem;
 }
 
-/* clean, simple logo top-left */
+/* Bigger logo, navbar height stays slim */
 .logo {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin-left: 1.5rem;              /* move a bit away from edge */
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .logo img {
-  height: 200px;
-  width:  auto;
+  display: block;
+  height: 52px;                     /* 🔥 main size control */
+  width: auto;
+  object-fit: contain;
 }
 
-/* nav links */
+/* mobile tweak */
+@media (max-width: 640px) {
+  .logo img {
+    height: 40px;                   /* slightly smaller on phone */
+  }
+}
 
 .nav-links {
   display: flex;
