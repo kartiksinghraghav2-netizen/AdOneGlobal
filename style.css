@@ -959,3 +959,29 @@ body {
     margin-bottom: 12rem;
   }
 }
+/* ======= ABSOLUTE LOGO FINAL OVERRIDE ======= */
+
+.logo,
+.logo * {
+  all: unset !important;
+  display: none !important;
+}
+
+/* ONLY THIS LOGO WILL SHOW */
+.logo-fix {
+  display: flex !important;
+  align-items: center;
+  padding: 0 !important;
+  margin-left: 20px;
+}
+
+.logo-img-fix {
+  height: 70px !important;   /* ✅ change size here */
+  width: auto !important;
+  object-fit: contain !important;
+  filter: none !important;   /* ✅ removes glow & ring */
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+}
+
