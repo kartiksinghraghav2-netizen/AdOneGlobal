@@ -568,3 +568,39 @@ footer {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* ✅ LOCK NAVBAR HEIGHT (PREVENT BACKGROUND FROM GROWING) */
+.nav {
+  height: 90px !important;   /* keeps top bar fixed */
+  align-items: center !important;
+}
+
+/* ✅ LOCK LOGO CONTAINER SIZE */
+.logo {
+  height: 60px !important;   /* container height stays clean */
+  padding: 0 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ✅ ONLY SCALE THE IMAGE */
+.logo img {
+  height: 80px !important;   /* 🔥 ONLY LOGO SIZE INCREASES */
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* ✅ MOBILE SAFETY */
+@media (max-width: 768px) {
+  .nav {
+    height: 75px !important;
+  }
+
+  .logo {
+    height: 52px !important;
+  }
+
+  .logo img {
+    height: 55px !important;
+  }
+}
