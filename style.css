@@ -89,7 +89,7 @@ img {
 
 .logo img {
   display: block;
-  height: 52px;                     /* 🔥 main size control */
+  height: 90px;                     /* 🔥 main size control */
   width: auto;
   object-fit: contain;
 }
