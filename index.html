@@ -29,7 +29,33 @@
         --radius-xl: 1.5rem;
         --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
       }
+      /* === OVERRIDE LOGO: ONLY ICON, NO CAPSULE/RING === */
 
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;                 /* no extra capsule padding */
+  margin: 0;
+  background: transparent;    /* remove dark capsule bg */
+  border: none;               /* remove golden border */
+  box-shadow: none;           /* remove glow */
+}
+
+.logo-img {
+  height: 60px;               /* 🔧 change this to make logo bigger/smaller */
+  width: auto;
+  object-fit: contain;
+  filter: none;               /* no glow / color effects */
+}
+
+/* hide any extra text or marks that were part of the logo block */
+.logo-text,
+.logo-title,
+.logo-tagline,
+.logo-mark {
+  display: none !important;
+}
       * {
         box-sizing: border-box;
       }
