@@ -190,38 +190,37 @@
                 generic quote.
               </p>
 
-              <form class="form-grid">
+             <form
+  class="form-grid"
+  action="https://formspree.io/f/abcdwxyz"
+  method="POST"
+>
+
                 <div>
                   <label for="name">Name</label>
-                  <input id="name" type="text" placeholder="Your name" />
+                 <input id="name" name="name" type="text" placeholder="Your name" required />
+
                 </div>
                 <div>
-                  <label for="email">Email</label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="you@example.com"
+                 <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
                   />
                 </div>
                 <div>
-                  <label for="phone">Phone / WhatsApp</label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    placeholder="+91 00000 00000"
+                 <input id="phone" name="phone" type="tel" placeholder="+91 00000 00000" required />
+
                   />
                 </div>
                 <div>
                   <label for="message">What do you want help with?</label>
-                  <textarea
-                    id="message"
-                    rows="4"
+                 <textarea id="message" name="message" rows="4" required></textarea>
                     placeholder="Example: Need leads for my salon in Jaipur, and better social media presence."
                   ></textarea>
                 </div>
-                <button type="button" class="btn-primary">
-                  Send enquiry
-                </button>
+                <button type="submit" class="btn-primary">
+  Send enquiry
+</button>
+
               </form>
 
               <p class="contact-note">
