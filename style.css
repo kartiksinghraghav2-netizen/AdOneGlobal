@@ -1,3 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
 :root {
   --bg: #020617;
   --bg-soft: #02081f;
