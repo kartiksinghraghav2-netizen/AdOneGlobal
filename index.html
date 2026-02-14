@@ -303,19 +303,18 @@
       document.getElementById("year").textContent =
         new Date().getFullYear();
 
-      // Simple scroll reveal for .reveal elements
-      const revealEls = document.querySelectorAll(".reveal");
-      const onScroll = () => {
-        const trigger = window.innerHeight * 0.88;
-        revealEls.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < trigger) {
-            el.classList.add("show");
-          }
-        });
-      };
-      window.addEventListener("scroll", onScroll);
-      onScroll();
+      // Advanced scroll reveal (Intersection Observer)
+  const elements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
     </script>
     <a href="https://wa.me/917597341600" target="_blank" class="floating-whatsapp">
       💬
