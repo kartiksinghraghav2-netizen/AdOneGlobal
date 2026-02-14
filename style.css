@@ -144,21 +144,19 @@ img {
 }
 
 .btn-primary {
-  border-radius: 999px;
-  padding: 0.65rem 1.35rem;
-  border: none;
-  font-size: 0.9rem;
-  font-weight: 500;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
   color: white;
-  background: linear-gradient(120deg, var(--primary), var(--accent));
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.7);
+  border: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
-  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
 }
 
 .btn-primary:hover {
@@ -252,15 +250,12 @@ img {
 }
 
 .hero-card {
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-subtle);
-  background: radial-gradient(circle at top left, #111827, #020617);
-  padding: 1.25rem;
-  box-shadow: var(--shadow-soft);
-  display: grid;
-  gap: 1rem;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
 }
-
 .hero-pill {
   display: inline-flex;
   align-items: center;
@@ -534,15 +529,14 @@ footer {
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.show {
   opacity: 1;
   transform: translateY(0);
 }
-
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
@@ -639,4 +633,41 @@ footer {
     height: 32px;
     transform: scale(1.15);
   }
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%);
+  top: -200px;
+  right: -200px;
+  z-index: 0;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+}
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 14px 16px;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
 }
