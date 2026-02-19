@@ -56,10 +56,28 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
 .logo img {
   height: 48px;
   width: auto;
   display: block;
+}
+
+.logo-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
 }
 
 .nav-links a {
@@ -392,6 +410,10 @@ footer {
 
   .nav-links a {
     font-size: 14px;
+  }
+
+  .logo-text {
+    font-size: 0.95rem;
   }
 
   .btn-primary {
