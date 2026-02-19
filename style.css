@@ -73,10 +73,11 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, #fdf5cf 0%, #f2cf66 22%, #c7972f 48%, #f8e08d 74%, #a6761f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: 0 1px 0 rgba(255, 241, 199, 0.35);
   text-transform: uppercase;
 }
 
