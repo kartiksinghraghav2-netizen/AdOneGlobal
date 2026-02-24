@@ -380,6 +380,70 @@ body {
 .service-pointers li {
   margin-bottom: 9px;
 }
+
+/* =========================
+   TOOLS SECTION
+   ========================= */
+
+.tools-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tool-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 22px;
+}
+
+.tool-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.tool-card p {
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.tool-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.tool-card li {
+  margin-bottom: 8px;
+}
+
+.tool-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tool-card a:hover {
+  text-decoration: underline;
+}
+
+.tool-generator {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hook-output {
+  background: rgba(79,70,229,0.07);
+  border: 1px solid rgba(79,70,229,0.18);
+  border-radius: 10px;
+  padding: 12px;
+  color: #312e81 !important;
+  font-weight: 500;
+}
+
 /* =========================
    FORM
    ========================= */
@@ -530,6 +594,10 @@ footer {
   }
 
   .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-grid {
     grid-template-columns: 1fr;
   }
 
