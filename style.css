@@ -382,6 +382,39 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
 }
 
+.social-block {
+  margin-top: 22px;
+}
+
+.social-links {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(79,70,229,0.2);
+  color: #312e81;
+  background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(124,58,237,0.12));
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(79,70,229,0.18);
+  color: #1e1b4b;
+}
+
 /* =========================
    SCROLL REVEAL
    ========================= */
@@ -425,6 +458,23 @@ footer {
   color: var(--primary);
 }
 
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--primary);
+}
+
 /* =========================
    FLOATING WHATSAPP
    ========================= */
@@ -463,6 +513,10 @@ footer {
   .footer-inner {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr;
   }
 }
 
