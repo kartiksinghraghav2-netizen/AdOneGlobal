@@ -357,6 +357,29 @@ body {
   background: rgba(79,70,229,0.12);
 }
 
+
+.service-link {
+  margin-top: 14px;
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.service-link:hover {
+  color: #312e81;
+  text-decoration: underline;
+}
+
+.service-pointers {
+  margin: 18px 0 0;
+  padding-left: 1.2rem;
+  color: #334155;
+}
+
+.service-pointers li {
+  margin-bottom: 9px;
+}
 /* =========================
    FORM
    ========================= */
