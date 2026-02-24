@@ -48,6 +48,9 @@
         </div>
       </header>
 
+      <div class="bg-orb bg-orb-left" aria-hidden="true"></div>
+      <div class="bg-orb bg-orb-right" aria-hidden="true"></div>
+
       <!-- HERO -->
       <main class="hero">
         <div class="container hero-grid">
@@ -111,7 +114,7 @@
         </div>
 
         <!-- SERVICES -->
-        <section id="services">
+        <section id="services" class="section-shell">
           <div class="container">
             <div class="reveal">
               <div class="section-label">Services</div>
@@ -187,7 +190,7 @@
         </section>
 
         <!-- CONTACT / BOOK -->
-        <section id="contact">
+        <section id="contact" class="section-shell">
           <div class="container contact-wrap">
             <div class="card-soft reveal">
               <div class="section-label">Book meeting</div>
@@ -259,7 +262,7 @@
         </section>
 
         <!-- ABOUT -->
-        <section id="about">
+        <section id="about" class="section-shell">
           <div class="container about-layout">
             <div class="reveal">
               <div class="section-label">About us</div>
@@ -310,18 +313,42 @@
       document.getElementById("year").textContent =
         new Date().getFullYear();
 
-      // Advanced scroll reveal (Intersection Observer)
-  const elements = document.querySelectorAll(".reveal");
+      // Advanced scroll reveal + staggered delays
+      const elements = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.15 });
+      elements.forEach((el, index) => {
+        el.style.setProperty("--delay", `${(index % 4) * 90}ms`);
+      });
 
-  elements.forEach(el => observer.observe(el));
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      elements.forEach((el) => observer.observe(el));
+
+      // Micro interaction for cards
+      const interactiveCards = document.querySelectorAll(
+        ".hero-card, .service-card, .about-card, .card-soft"
+      );
+
+      interactiveCards.forEach((card) => {
+        card.addEventListener("mousemove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+
+          card.style.setProperty("--pointer-x", `${x}px`);
+          card.style.setProperty("--pointer-y", `${y}px`);
+        });
+      });
     </script>
     <a href="https://wa.me/917597341600" target="_blank" class="floating-whatsapp">
       💬

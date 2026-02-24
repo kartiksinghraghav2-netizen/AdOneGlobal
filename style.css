@@ -37,6 +37,36 @@ body {
   margin: auto;
 }
 
+.page {
+  position: relative;
+  isolation: isolate;
+}
+
+.bg-orb {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(12px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: floatOrb 12s ease-in-out infinite alternate;
+}
+
+.bg-orb-left {
+  top: 14%;
+  left: -160px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.22), transparent 70%);
+}
+
+.bg-orb-right {
+  top: 42%;
+  right: -160px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2), transparent 70%);
+  animation-delay: 1.8s;
+}
+
 /* =========================
    NAVBAR
    ========================= */
@@ -130,11 +160,33 @@ body {
   font-size: 42px;
   font-weight: 700;
   line-height: 1.2;
+  animation: titleEntrance 1s cubic-bezier(.22,1,.36,1);
 }
 
 .hero-subtitle {
   color: var(--text-muted);
   margin: 20px 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-meta {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+  color: #334155;
+}
+
+.hero-kicker {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 600;
 }
 
 /* =========================
@@ -187,7 +239,29 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   padding: 30px;
-  transition: var(--transition);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-soft::before,
+.hero-card::before,
+.service-card::before,
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(180px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(79,70,229,0.16), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-soft:hover::before,
+.hero-card:hover::before,
+.service-card:hover::before,
+.about-card:hover::before {
+  opacity: 1;
 }
 
 .service-card:hover,
@@ -199,6 +273,11 @@ body {
 /* =========================
    SERVICES GRID
    ========================= */
+
+.section-shell {
+  position: relative;
+  padding: 22px 0;
+}
 
 #services {
   position: relative;
@@ -309,13 +388,15 @@ input:focus, textarea:focus {
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
 }
 
 .reveal.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* =========================
@@ -405,5 +486,29 @@ footer {
   .btn-primary {
     padding: 10px 16px;
     font-size: 14px;
+  }
+}
+
+@keyframes floatOrb {
+  from { transform: translateY(-15px) scale(1); }
+  to { transform: translateY(20px) scale(1.08); }
+}
+
+@keyframes titleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
