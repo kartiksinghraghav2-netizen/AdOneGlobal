@@ -405,23 +405,28 @@
         el.style.setProperty("--delay", `${(index % 4) * 90}ms`);
       });
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
 
-      elements.forEach((el) => observer.observe(el));
+        elements.forEach((el) => observer.observe(el));
+      } else {
+        // Fallback for older browsers
+        elements.forEach((el) => el.classList.add("show"));
+      }
 
       // Micro interaction for cards
       const interactiveCards = document.querySelectorAll(
-        ".hero-card, .service-card, .about-card, .card-soft"
+        ".hero-card, .service-card, .about-card, .card-soft, .tool-card"
       );
 
       interactiveCards.forEach((card) => {
@@ -470,7 +475,7 @@
       }
 
     </script>
-    <a href="https://wa.me/917597341600" target="_blank" class="floating-whatsapp">
+    <a href="https://wa.me/917597341600" target="_blank" rel="noopener noreferrer" class="floating-whatsapp">
       💬
     </a>
   </body>
