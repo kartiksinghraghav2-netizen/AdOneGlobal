@@ -30,6 +30,7 @@
           <nav class="nav-links">
             <a href="#services">Services</a>
             <a href="#about">About</a>
+            <a href="#tools">Tools</a>
             <a href="#contact">Book Meeting</a>
             <a
               href="https://store.adoneglobal.com"
@@ -47,6 +48,9 @@
           </nav>
         </div>
       </header>
+
+      <div class="bg-orb bg-orb-left" aria-hidden="true"></div>
+      <div class="bg-orb bg-orb-right" aria-hidden="true"></div>
 
       <!-- HERO -->
       <main class="hero">
@@ -111,7 +115,7 @@
         </div>
 
         <!-- SERVICES -->
-        <section id="services">
+        <section id="services" class="section-shell">
           <div class="container">
             <div class="reveal">
               <div class="section-label">Services</div>
@@ -131,6 +135,7 @@
                   platforms like Instagram, Facebook, LinkedIn, and more.
                 </p>
                 <div class="service-tag">Strategy · Creatives · Analytics</div>
+                <a class="service-link" href="services/social-media-marketing.html">Explore service →</a>
               </article>
 
               <article class="service-card reveal">
@@ -141,6 +146,7 @@
                   sales, and measurable ROI.
                 </p>
                 <div class="service-tag">Meta Ads · Google Ads</div>
+                <a class="service-link" href="services/performance-advertising.html">Explore service →</a>
               </article>
 
               <article class="service-card reveal">
@@ -151,6 +157,7 @@
                   and convert visitors into inquiries.
                 </p>
                 <div class="service-tag">Landing pages · Business sites</div>
+                <a class="service-link" href="services/website-design-development.html">Explore service →</a>
               </article>
 
               <article class="service-card reveal">
@@ -161,6 +168,7 @@
                   use across social and paid campaigns.
                 </p>
                 <div class="service-tag">Reels · Shorts · Creatives</div>
+                <a class="service-link" href="services/content-video-marketing.html">Explore service →</a>
               </article>
 
               <article class="service-card reveal">
@@ -171,6 +179,7 @@
                   impossible to ignore in your market.
                 </p>
                 <div class="service-tag">Positioning · Messaging</div>
+                <a class="service-link" href="services/brand-strategy.html">Explore service →</a>
               </article>
 
               <article class="service-card reveal">
@@ -181,13 +190,84 @@
                   the best version of your brand.
                 </p>
                 <div class="service-tag">Reviews · Profiles</div>
+                <a class="service-link" href="services/online-reputation.html">Explore service →</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- TOOLS -->
+        <section id="tools" class="section-shell">
+          <div class="container">
+            <div class="reveal">
+              <div class="section-label">Free marketing tools</div>
+              <h2 class="section-title">Tools to boost visibility, content quality & client interaction</h2>
+              <p class="section-subtitle">Use these practical tools to find trending audio, discover winning hooks, optimize videos, and improve lead follow-ups.</p>
+            </div>
+
+            <div class="tools-grid">
+              <article class="tool-card reveal">
+                <h3>🔥 Trending Audio Finder</h3>
+                <p>Find fast-moving songs/sounds for Reels and Shorts so your content aligns with what people already consume.</p>
+                <ul>
+                  <li><a href="https://trends.google.com" target="_blank" rel="noopener noreferrer">Google Trends</a></li>
+                  <li><a href="https://ads.tiktok.com/business/creativecenter/inspiration/popular/music/pc/en" target="_blank" rel="noopener noreferrer">TikTok Creative Center – Trending Music</a></li>
+                  <li><a href="https://www.instagram.com/reels/" target="_blank" rel="noopener noreferrer">Instagram Reels Explore</a></li>
+                </ul>
+              </article>
+
+              <article class="tool-card reveal">
+                <h3>🎬 Video & Editing Toolkit</h3>
+                <p>Create professional content faster with subtitle, editing, and thumbnail tools.</p>
+                <ul>
+                  <li><a href="https://www.capcut.com" target="_blank" rel="noopener noreferrer">CapCut</a></li>
+                  <li><a href="https://www.canva.com" target="_blank" rel="noopener noreferrer">Canva</a></li>
+                  <li><a href="https://www.remove.bg" target="_blank" rel="noopener noreferrer">Remove.bg</a></li>
+                </ul>
+              </article>
+
+              <article class="tool-card reveal">
+                <h3>📈 Competitor & Ad Research</h3>
+                <p>See what competitors are running and reverse-engineer high-performing creatives.</p>
+                <ul>
+                  <li><a href="https://www.facebook.com/ads/library" target="_blank" rel="noopener noreferrer">Meta Ad Library</a></li>
+                  <li><a href="https://www.semrush.com" target="_blank" rel="noopener noreferrer">SEMrush</a></li>
+                  <li><a href="https://answerthepublic.com" target="_blank" rel="noopener noreferrer">AnswerThePublic</a></li>
+                </ul>
+              </article>
+
+              <article class="tool-card reveal tool-generator">
+                <h3>🤖 AI Hook Generator (Quick Ideas)</h3>
+                <p>Generate attention-grabbing social hooks instantly. Great for reels, shorts, and ad scripts.</p>
+                <button id="generateHook" class="btn-primary" type="button">Generate new hook</button>
+                <p id="hookOutput" class="hook-output">Tap the button to get your first viral-style hook.</p>
+              </article>
+
+              <article class="tool-card reveal tool-generator">
+                <h3>💬 Client Follow-up Message Builder</h3>
+                <p>Create a polite WhatsApp follow-up message to increase response rate from leads.</p>
+                <button id="generateFollowup" class="btn-ghost" type="button">Generate follow-up</button>
+                <p id="followupOutput" class="hook-output">Use this before your next sales follow-up.</p>
+              </article>
+
+              <article class="tool-card reveal mini-game-card">
+                <h3>🎮 Mini Game: Catch the Dot</h3>
+                <p>Boost engagement with a quick reaction game — great for visitors to interact with your brand.</p>
+                <div class="game-controls">
+                  <button id="startGame" class="btn-primary" type="button">Start game</button>
+                  <div class="game-stats">Score: <span id="gameScore">0</span> · Time: <span id="gameTime">15</span>s</div>
+                </div>
+                <div id="gameArea" class="game-area" aria-label="Catch the dot game area">
+                  <button id="gameDot" class="game-dot" type="button" aria-label="Catch moving dot"></button>
+                </div>
               </article>
             </div>
           </div>
         </section>
 
         <!-- CONTACT / BOOK -->
-        <section id="contact">
+        <section id="contact" class="section-shell">
           <div class="container contact-wrap">
             <div class="card-soft reveal">
               <div class="section-label">Book meeting</div>
@@ -249,9 +329,21 @@
                 </div>
                 <div>
                   <strong>WhatsApp</strong><br />
-                  <a href="https://wa.me/917597341600" target="_blank"
+                  <a href="https://wa.me/917597341600" target="_blank" rel="noopener noreferrer"
                     >Chat on WhatsApp →</a
                   >
+                </div>
+              </div>
+
+              <div class="social-block">
+                <strong>Follow AD ONE GLOBAL</strong>
+                <div class="social-links" aria-label="Social media links">
+                  <a class="social-btn" href="https://www.instagram.com/adoneglobal" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 Instagram</a>
+                  <a class="social-btn" href="https://www.facebook.com/adoneglobal" target="_blank" rel="noopener noreferrer" aria-label="Facebook">👍 Facebook</a>
+                  <a class="social-btn" href="https://www.linkedin.com/company/adoneglobal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">💼 LinkedIn</a>
+                  <a class="social-btn" href="https://www.youtube.com/@adoneglobal" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶️ YouTube</a>
+                  <a class="social-btn" href="https://x.com/adoneglobal" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">𝕏 X</a>
+                  <a class="social-btn" href="https://wa.me/917597341600" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬 WhatsApp</a>
                 </div>
               </div>
             </aside>
@@ -259,7 +351,7 @@
         </section>
 
         <!-- ABOUT -->
-        <section id="about">
+        <section id="about" class="section-shell">
           <div class="container about-layout">
             <div class="reveal">
               <div class="section-label">About us</div>
@@ -299,31 +391,22 @@
           <div class="footer-links">
             <a href="#services">Services</a>
             <a href="#about">About</a>
+            <a href="#tools">Tools</a>
             <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/adoneglobal" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/adoneglobal" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.linkedin.com/company/adoneglobal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.youtube.com/@adoneglobal" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://x.com/adoneglobal" target="_blank" rel="noopener noreferrer">X</a>
           </div>
         </div>
       </footer>
     </div>
 
-    <script>
-      // Set current year in footer
-      document.getElementById("year").textContent =
-        new Date().getFullYear();
-
-      // Advanced scroll reveal (Intersection Observer)
-  const elements = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.15 });
-
-  elements.forEach(el => observer.observe(el));
-    </script>
-    <a href="https://wa.me/917597341600" target="_blank" class="floating-whatsapp">
+    <script src="main.js"></script>
+    <a href="https://wa.me/917597341600" target="_blank" rel="noopener noreferrer" class="floating-whatsapp">
       💬
     </a>
   </body>
