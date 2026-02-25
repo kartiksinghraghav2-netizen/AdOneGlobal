@@ -252,15 +252,14 @@
               </article>
 
               <article class="tool-card reveal mini-game-card">
-                <h3>🎮 Mini Game: Catch the Dot</h3>
-                <p>Boost engagement with a quick reaction game — great for visitors to interact with your brand.</p>
+                <h3>🐍 Mini Game: Snake</h3>
+                <p>Fun classic snake game to increase time-on-site. Use arrow keys to play and challenge your best score.</p>
                 <div class="game-controls">
-                  <button id="startGame" class="btn-primary" type="button">Start game</button>
-                  <div class="game-stats">Score: <span id="gameScore">0</span> · Time: <span id="gameTime">15</span>s</div>
+                  <button id="startSnake" class="btn-primary" type="button">Start Snake</button>
+                  <div class="game-stats">Score: <span id="snakeScore">0</span> · Best: <span id="snakeBest">0</span></div>
                 </div>
-                <div id="gameArea" class="game-area" aria-label="Catch the dot game area">
-                  <button id="gameDot" class="game-dot" type="button" aria-label="Catch moving dot"></button>
-                </div>
+                <canvas id="snakeCanvas" class="snake-canvas" width="360" height="220" aria-label="Snake game canvas"></canvas>
+                <p class="game-help">Controls: ↑ ↓ ← → (Arrow keys)</p>
               </article>
             </div>
           </div>

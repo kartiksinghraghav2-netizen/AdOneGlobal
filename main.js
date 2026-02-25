@@ -77,66 +77,125 @@ if (followupBtn && followupOutput) {
   });
 }
 
-// Mini game: Catch the Dot
-const startGameBtn = document.getElementById("startGame");
-const gameArea = document.getElementById("gameArea");
-const gameDot = document.getElementById("gameDot");
-const gameScore = document.getElementById("gameScore");
-const gameTime = document.getElementById("gameTime");
+// Mini game: Snake
+const startSnakeBtn = document.getElementById("startSnake");
+const snakeCanvas = document.getElementById("snakeCanvas");
+const snakeScoreEl = document.getElementById("snakeScore");
+const snakeBestEl = document.getElementById("snakeBest");
 
-let score = 0;
-let timeLeft = 15;
-let gameTimer = null;
-let gameRunning = false;
+if (startSnakeBtn && snakeCanvas && snakeScoreEl && snakeBestEl) {
+  const ctx = snakeCanvas.getContext("2d");
+  const tile = 20;
+  const cols = Math.floor(snakeCanvas.width / tile);
+  const rows = Math.floor(snakeCanvas.height / tile);
 
-function moveDot() {
-  if (!gameArea || !gameDot) return;
-  const areaRect = gameArea.getBoundingClientRect();
-  const dotSize = 26;
-  const maxX = Math.max(areaRect.width - dotSize, 0);
-  const maxY = Math.max(areaRect.height - dotSize, 0);
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-  gameDot.style.left = `${x}px`;
-  gameDot.style.top = `${y}px`;
-  gameDot.style.transform = "none";
-}
+  let snake = [{ x: 8, y: 5 }];
+  let direction = { x: 1, y: 0 };
+  let nextDirection = { x: 1, y: 0 };
+  let food = { x: 12, y: 6 };
+  let score = 0;
+  let best = Number(localStorage.getItem("snakeBest") || 0);
+  let loop = null;
+  let running = false;
 
-function endGame() {
-  gameRunning = false;
-  clearInterval(gameTimer);
-  gameTimer = null;
-  if (startGameBtn) {
-    startGameBtn.disabled = false;
-    startGameBtn.textContent = "Play again";
+  snakeBestEl.textContent = String(best);
+
+  function randomFood() {
+    let x;
+    let y;
+    do {
+      x = Math.floor(Math.random() * cols);
+      y = Math.floor(Math.random() * rows);
+    } while (snake.some((part) => part.x === x && part.y === y));
+    food = { x, y };
   }
-}
 
-function startGame() {
-  score = 0;
-  timeLeft = 15;
-  gameRunning = true;
-  gameScore.textContent = String(score);
-  gameTime.textContent = String(timeLeft);
-  startGameBtn.disabled = true;
-  startGameBtn.textContent = "Playing...";
-  moveDot();
+  function drawCell(x, y, color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x * tile + 1, y * tile + 1, tile - 2, tile - 2);
+  }
 
-  gameTimer = setInterval(() => {
-    timeLeft -= 1;
-    gameTime.textContent = String(timeLeft);
-    if (timeLeft <= 0) {
-      endGame();
+  function drawBoard() {
+    ctx.fillStyle = "#0f172a";
+    ctx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+
+    drawCell(food.x, food.y, "#f59e0b");
+    snake.forEach((part, idx) => drawCell(part.x, part.y, idx === 0 ? "#22c55e" : "#4ade80"));
+  }
+
+  function resetGame() {
+    snake = [{ x: 8, y: 5 }];
+    direction = { x: 1, y: 0 };
+    nextDirection = { x: 1, y: 0 };
+    score = 0;
+    snakeScoreEl.textContent = "0";
+    randomFood();
+    drawBoard();
+  }
+
+  function gameOver() {
+    running = false;
+    clearInterval(loop);
+    loop = null;
+    startSnakeBtn.disabled = false;
+    startSnakeBtn.textContent = "Play again";
+
+    if (score > best) {
+      best = score;
+      localStorage.setItem("snakeBest", String(best));
+      snakeBestEl.textContent = String(best);
     }
-  }, 1000);
-}
+  }
 
-if (startGameBtn && gameArea && gameDot && gameScore && gameTime) {
-  startGameBtn.addEventListener("click", startGame);
-  gameDot.addEventListener("click", () => {
-    if (!gameRunning) return;
-    score += 1;
-    gameScore.textContent = String(score);
-    moveDot();
+  function tick() {
+    direction = nextDirection;
+    const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+    const hitWall = head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows;
+    const hitSelf = snake.some((part) => part.x === head.x && part.y === head.y);
+    if (hitWall || hitSelf) {
+      gameOver();
+      return;
+    }
+
+    snake.unshift(head);
+
+    if (head.x === food.x && head.y === food.y) {
+      score += 1;
+      snakeScoreEl.textContent = String(score);
+      randomFood();
+    } else {
+      snake.pop();
+    }
+
+    drawBoard();
+  }
+
+  function startSnake() {
+    resetGame();
+    running = true;
+    startSnakeBtn.disabled = true;
+    startSnakeBtn.textContent = "Playing...";
+    clearInterval(loop);
+    loop = setInterval(tick, 130);
+  }
+
+  window.addEventListener("keydown", (event) => {
+    const keyMap = {
+      ArrowUp: { x: 0, y: -1 },
+      ArrowDown: { x: 0, y: 1 },
+      ArrowLeft: { x: -1, y: 0 },
+      ArrowRight: { x: 1, y: 0 },
+    };
+
+    if (!keyMap[event.key]) return;
+    event.preventDefault();
+    const candidate = keyMap[event.key];
+
+    if (candidate.x === -direction.x && candidate.y === -direction.y) return;
+    nextDirection = candidate;
   });
+
+  startSnakeBtn.addEventListener("click", startSnake);
+  resetGame();
 }

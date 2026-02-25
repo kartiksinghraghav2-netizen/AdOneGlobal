@@ -461,28 +461,20 @@ body {
   color: #334155;
 }
 
-.game-area {
-  position: relative;
+.snake-canvas {
   margin-top: 14px;
-  height: 190px;
+  width: 100%;
+  max-width: 480px;
   border-radius: 14px;
   border: 1px solid rgba(79,70,229,0.2);
-  background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(124,58,237,0.12));
-  overflow: hidden;
+  background: #0f172a;
+  display: block;
 }
 
-.game-dot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 26px;
-  height: 26px;
-  transform: translate(-50%, -50%);
-  border: none;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f43f5e, #ef4444);
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(239,68,68,0.35);
+.game-help {
+  margin-top: 10px !important;
+  color: #475569 !important;
+  font-size: 13px;
 }
 
 /* =========================
