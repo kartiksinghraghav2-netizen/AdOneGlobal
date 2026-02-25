@@ -76,3 +76,67 @@ if (followupBtn && followupOutput) {
     followupOutput.textContent = randomFollowup;
   });
 }
+
+// Mini game: Catch the Dot
+const startGameBtn = document.getElementById("startGame");
+const gameArea = document.getElementById("gameArea");
+const gameDot = document.getElementById("gameDot");
+const gameScore = document.getElementById("gameScore");
+const gameTime = document.getElementById("gameTime");
+
+let score = 0;
+let timeLeft = 15;
+let gameTimer = null;
+let gameRunning = false;
+
+function moveDot() {
+  if (!gameArea || !gameDot) return;
+  const areaRect = gameArea.getBoundingClientRect();
+  const dotSize = 26;
+  const maxX = Math.max(areaRect.width - dotSize, 0);
+  const maxY = Math.max(areaRect.height - dotSize, 0);
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+  gameDot.style.left = `${x}px`;
+  gameDot.style.top = `${y}px`;
+  gameDot.style.transform = "none";
+}
+
+function endGame() {
+  gameRunning = false;
+  clearInterval(gameTimer);
+  gameTimer = null;
+  if (startGameBtn) {
+    startGameBtn.disabled = false;
+    startGameBtn.textContent = "Play again";
+  }
+}
+
+function startGame() {
+  score = 0;
+  timeLeft = 15;
+  gameRunning = true;
+  gameScore.textContent = String(score);
+  gameTime.textContent = String(timeLeft);
+  startGameBtn.disabled = true;
+  startGameBtn.textContent = "Playing...";
+  moveDot();
+
+  gameTimer = setInterval(() => {
+    timeLeft -= 1;
+    gameTime.textContent = String(timeLeft);
+    if (timeLeft <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
+
+if (startGameBtn && gameArea && gameDot && gameScore && gameTime) {
+  startGameBtn.addEventListener("click", startGame);
+  gameDot.addEventListener("click", () => {
+    if (!gameRunning) return;
+    score += 1;
+    gameScore.textContent = String(score);
+    moveDot();
+  });
+}

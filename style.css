@@ -444,6 +444,47 @@ body {
   font-weight: 500;
 }
 
+.mini-game-card {
+  grid-column: span 2;
+}
+
+.game-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.game-stats {
+  font-weight: 600;
+  color: #334155;
+}
+
+.game-area {
+  position: relative;
+  margin-top: 14px;
+  height: 190px;
+  border-radius: 14px;
+  border: 1px solid rgba(79,70,229,0.2);
+  background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(124,58,237,0.12));
+  overflow: hidden;
+}
+
+.game-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f43f5e, #ef4444);
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(239,68,68,0.35);
+}
+
 /* =========================
    FORM
    ========================= */
@@ -599,6 +640,10 @@ footer {
 
   .tools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mini-game-card {
+    grid-column: span 1;
   }
 
   .footer-inner {
