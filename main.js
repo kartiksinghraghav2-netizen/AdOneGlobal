@@ -82,6 +82,7 @@ const startSnakeBtn = document.getElementById("startSnake");
 const snakeCanvas = document.getElementById("snakeCanvas");
 const snakeScoreEl = document.getElementById("snakeScore");
 const snakeBestEl = document.getElementById("snakeBest");
+const snakeControls = document.querySelectorAll(".snake-control");
 
 if (startSnakeBtn && snakeCanvas && snakeScoreEl && snakeBestEl) {
   const ctx = snakeCanvas.getContext("2d");
@@ -180,6 +181,11 @@ if (startSnakeBtn && snakeCanvas && snakeScoreEl && snakeBestEl) {
     loop = setInterval(tick, 130);
   }
 
+  function setDirection(candidate) {
+    if (candidate.x === -direction.x && candidate.y === -direction.y) return;
+    nextDirection = candidate;
+  }
+
   window.addEventListener("keydown", (event) => {
     const keyMap = {
       ArrowUp: { x: 0, y: -1 },
@@ -190,10 +196,22 @@ if (startSnakeBtn && snakeCanvas && snakeScoreEl && snakeBestEl) {
 
     if (!keyMap[event.key]) return;
     event.preventDefault();
-    const candidate = keyMap[event.key];
+    setDirection(keyMap[event.key]);
+  });
 
-    if (candidate.x === -direction.x && candidate.y === -direction.y) return;
-    nextDirection = candidate;
+  const dirMap = {
+    up: { x: 0, y: -1 },
+    down: { x: 0, y: 1 },
+    left: { x: -1, y: 0 },
+    right: { x: 1, y: 0 },
+  };
+
+  snakeControls.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const dir = btn.getAttribute("data-dir");
+      if (!dirMap[dir]) return;
+      setDirection(dirMap[dir]);
+    });
   });
 
   startSnakeBtn.addEventListener("click", startSnake);

@@ -259,7 +259,13 @@
                   <div class="game-stats">Score: <span id="snakeScore">0</span> · Best: <span id="snakeBest">0</span></div>
                 </div>
                 <canvas id="snakeCanvas" class="snake-canvas" width="360" height="220" aria-label="Snake game canvas"></canvas>
-                <p class="game-help">Controls: ↑ ↓ ← → (Arrow keys)</p>
+                <div class="snake-mobile-controls" aria-label="Snake mobile controls">
+                  <button class="snake-control snake-up" type="button" data-dir="up" aria-label="Move up">▲</button>
+                  <button class="snake-control snake-left" type="button" data-dir="left" aria-label="Move left">◀</button>
+                  <button class="snake-control snake-down" type="button" data-dir="down" aria-label="Move down">▼</button>
+                  <button class="snake-control snake-right" type="button" data-dir="right" aria-label="Move right">▶</button>
+                </div>
+                <p class="game-help">Controls: ↑ ↓ ← → (Keyboard) or on-screen arrows (Mobile)</p>
               </article>
             </div>
           </div>

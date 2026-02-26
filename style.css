@@ -471,6 +471,37 @@ body {
   display: block;
 }
 
+
+.snake-mobile-controls {
+  margin-top: 12px;
+  width: 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    ". up ."
+    "left down right";
+  gap: 8px;
+}
+
+.snake-control {
+  border: 1px solid rgba(79,70,229,0.3);
+  border-radius: 10px;
+  background: #fff;
+  color: #312e81;
+  font-weight: 700;
+  height: 38px;
+  cursor: pointer;
+}
+
+.snake-up { grid-area: up; }
+.snake-left { grid-area: left; }
+.snake-down { grid-area: down; }
+.snake-right { grid-area: right; }
+
+.snake-control:active {
+  transform: scale(0.96);
+}
+
 .game-help {
   margin-top: 10px !important;
   color: #475569 !important;
