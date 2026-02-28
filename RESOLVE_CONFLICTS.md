@@ -14,12 +14,12 @@ If GitHub shows conflicts in `index.html` and `style.css`, resolve them with thi
    - `Store`
 2. Keep the full `<!-- TOOLS -->` section with `id="tools"`.
 3. Keep all service card links:
-   - `href="services/social-media-marketing.html"`
-   - `href="services/performance-advertising.html"`
-   - `href="services/website-design-development.html"`
-   - `href="services/content-video-marketing.html"`
-   - `href="services/brand-strategy.html"`
-   - `href="services/online-reputation.html"`
+   - `href="services/social-media-marketing/index.html"`
+   - `href="services/performance-advertising/index.html"`
+   - `href="services/website-design-development/index.html"`
+   - `href="services/content-video-marketing/index.html"`
+   - `href="services/brand-strategy/index.html"`
+   - `href="services/online-reputation/index.html"`
 4. Keep the footer `Tools` anchor in `.footer-links`.
 5. Keep:
    - `<script src="main.js"></script>`
@@ -39,12 +39,12 @@ If GitHub shows conflicts in `index.html` and `style.css`, resolve them with thi
 ## 3) Ensure new files exist after merge
 
 - `main.js`
-- `services/brand-strategy.html`
-- `services/content-video-marketing.html`
-- `services/online-reputation.html`
-- `services/performance-advertising.html`
-- `services/social-media-marketing.html`
-- `services/website-design-development.html`
+- `services/brand-strategy/index.html`
+- `services/content-video-marketing/index.html`
+- `services/online-reputation/index.html`
+- `services/performance-advertising/index.html`
+- `services/social-media-marketing/index.html`
+- `services/website-design-development/index.html`
 
 ## 4) Quick post-merge checks
 
